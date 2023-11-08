@@ -10,6 +10,7 @@ import {
   ResetPasswordScreen,
   Dashboard,
   Home,
+  OngProfile
   
 } from './src/screens'
 
@@ -30,6 +31,7 @@ export default function App() {
           <Stack.Screen name="RegisterScreen" component={RegisterScreen} />
           <Stack.Screen name="Dashboard" component={Dashboard} />
           <Stack.Screen name="Home" component={Home} />
+          <Stack.Screen name="OngProfile" component={OngProfile} />
           <Stack.Screen
             name="ResetPasswordScreen"
             component={ResetPasswordScreen}

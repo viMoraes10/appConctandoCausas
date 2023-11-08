@@ -92,12 +92,12 @@ class Home extends Component {
         </View>
 
         <View style={styles.sizeFlatList}>
-          <FlatList
+        <FlatList
           showsHorizontalScrollIndicator={false}
           keyboardDismissMode={(item) => item.id}
           data={this.state.feed}
-          renderItem={ ({item}) => <Lista data={item} /> }
-          />
+          renderItem={({ item }) => <Lista data={item} navigation={this.props.navigation} />} // Adicione a propriedade navigation aqui
+        />
         </View>
 
       </View>

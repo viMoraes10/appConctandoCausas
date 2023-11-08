@@ -15,13 +15,14 @@
     }
 
     render(){
+      const { navigation } = this.props;
       return(
         <View style={styles.areaFeed}>
           <View style={styles.headFeed}>
-            <Image 
-              source={{uri: this.state.feed.imgperfil}} 
-              style={styles.roundedImage}
-            />
+              <Image 
+                source={{uri: this.state.feed.imgperfil}} 
+                style={styles.roundedImage}
+              />
             <View style={styles.textContainer}>
               <Text style={styles.titleOng}>
                 {this.state.feed.nome}
@@ -32,10 +33,15 @@
             </View>
           </View>
           <View style={styles.imgOngs}>
-          <Image 
-              source={{uri: this.state.feed.imgPublicacao}}
-              style={styles.imgOngsSize} 
-              resizeMode="contain"/>
+            <TouchableOpacity 
+              onPress={() => navigation.navigate('OngProfile')}
+            >
+              <Image 
+                source={{uri: this.state.feed.imgPublicacao}}
+                style={styles.imgOngsSize} 
+                resizeMode="contain"
+              />
+            </TouchableOpacity>
           </View>
 
           <View style={styles.fieldFunctions}>
