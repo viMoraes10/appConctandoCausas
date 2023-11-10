@@ -34,7 +34,7 @@
           </View>
           <View style={styles.imgOngs}>
             <TouchableOpacity 
-              onPress={() => navigation.navigate('OngProfile')}
+              onPress={() => navigation.navigate('OngProfile', {profilePic: this.state.feed.imgperfil, profileName: this.state.feed.nome,profileDescription:this.state.feed.profileDescription})}
             >
               <Image 
                 source={{uri: this.state.feed.imgPublicacao}}

@@ -1,12 +1,11 @@
 import React from 'react'
-import Background from '../components/Background'
-import Logo from '../components/Logo'
-import Header from '../components/Header'
 import Paragraph from '../components/Paragraph'
-import Button from '../components/Button'
-import { View, Image, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, Image, TouchableOpacity, StyleSheet, Text, Button } from 'react-native';
 
-export default function OngProfile({ navigation }) {
+export default function OngProfile({ navigation, route }) {
+    const { profilePic } = route.params;
+    const { profileDescription } = route.params;
+    const { profileName } = route.params;
     return (
         <View style={styles.container}>
             <View style={styles.header}>
@@ -14,7 +13,7 @@ export default function OngProfile({ navigation }) {
                     onPress={() => navigation.navigate('Home')}
                 >
                     <Image
-                    source={require('../img/logo.png')}
+                    source={{uri:'https://cdn1.iconfinder.com/data/icons/material-core/16/arrow-back-64.png'}}
                     style={styles.logo}/>
                 </TouchableOpacity>
 
@@ -26,17 +25,17 @@ export default function OngProfile({ navigation }) {
                 </TouchableOpacity>
             </View>
             <View>
-                <View style={styles.sizeFlatList}>
-                    <Image
-                        source={require('../img/save-planet.png')}
-                        style={styles.profilePic}
-                    />
-                    <Header>ONG Ajuda Solidária</Header>
-                </View>
+            <View style={styles.card}>
+                <Image
+                    source={{uri: profilePic}}
+                    style={styles.profilePic}
+                />
+                <Text style={styles.headerText}>{profileName}</Text>
+                <Button title="Realizar doação" onPress={() => {/* handle donation */}} />
+            </View>
                 <Paragraph>
-                    A "ONG Ajuda Solidária" é uma organização sem fins lucrativos, comprometida em promover apoio e assistência a indivíduos em situação de vulnerabilidade. Nossa missão é proporcionar recursos, capacitação e suporte emocional, visando à reintegração social e ao fortalecimento do potencial individual. Por meio de doações, parcerias e o trabalho dedicado de voluntários, buscamos transformar vidas, estabelecer pontes de solidariedade e construir um futuro mais digno para todos aqueles que atendemos. Junte-se a nós e faça parte dessa rede de amor e cuidado!
+                    {profileDescription}
                 </Paragraph>
-                <Button>Realizar doação</Button>
             </View>
         </View>
     )
@@ -71,6 +70,30 @@ const styles = StyleSheet.create({
       shadowOpacity: 0.1,
       shadowRadius: 5,
     },
+    card: {
+        backgroundColor: 'white',
+        borderRadius: 10,
+        padding: 15,
+        margin: 10,
+        alignItems: 'center', // Alinha os filhos ao centro horizontalmente
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 2 },
+        shadowOpacity: 0.1,
+        shadowRadius: 3,
+        elevation: 3,
+    },
+    profilePic: {
+        width: 150,
+        height: 150,
+        borderRadius: 75, // Circular image
+        marginBottom: 8, // Espaço entre a imagem e o texto
+    },
+    headerText: {
+        fontSize: 18,
+        fontWeight: 'bold',
+        textAlign: 'center', // Certifica-se de que o texto está centralizado
+        marginBottom: 8, // Espaço entre o texto e o botão
+    },
     send: {
       width: 23,
       height: 23
@@ -79,11 +102,7 @@ const styles = StyleSheet.create({
       width: 23,
       height: 23
     },
-    profilePic: {
-        width: 150,
-        height: 150
-      },
-    sizeFlatList: {
+    sizeFlatList: { 
         flexDirection: 'row',
     }
   });
