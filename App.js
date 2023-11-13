@@ -10,8 +10,11 @@ import {
   ResetPasswordScreen,
   Dashboard,
   Home,
-  OngProfile
-  
+  OngProfile,
+  Ongs,
+  Message,
+  MessageUser
+
 } from './src/screens'
 
 const Stack = createStackNavigator()
@@ -36,6 +39,17 @@ export default function App() {
             name="ResetPasswordScreen"
             component={ResetPasswordScreen}
           />
+          <Stack.Screen
+            name="Ongs"
+            component={Ongs} />
+
+          <Stack.Screen
+            name="Message"
+            component={Message} />
+
+          <Stack.Screen
+            name="MessageUser"
+            component={MessageUser} />
         </Stack.Navigator>
       </NavigationContainer>
     </Provider>
