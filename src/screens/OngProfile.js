@@ -1,5 +1,7 @@
 import React from 'react'
 import Paragraph from '../components/Paragraph'
+import Icon from 'react-native-vector-icons/AntDesign';
+import { theme } from '../core/theme';
 import { View, Image, TouchableOpacity, StyleSheet, Text, Button } from 'react-native';
 
 export default function OngProfile({ navigation, route }) {
@@ -9,30 +11,29 @@ export default function OngProfile({ navigation, route }) {
     return (
         <View style={styles.container}>
             <View style={styles.header}>
-                <TouchableOpacity 
+                <TouchableOpacity
                     onPress={() => navigation.navigate('Home')}
                 >
-                    <Image
-                    source={{uri:'https://cdn1.iconfinder.com/data/icons/material-core/16/arrow-back-64.png'}}
-                    style={styles.logo}/>
+
+                    <Icon name="left"
+                        size={26}
+                        color={theme.colors.primary}
+                        style={styles.logo} />
                 </TouchableOpacity>
 
-                <TouchableOpacity>
-                    <Image
-                    source={require('../img/send.png')}
-                    style={styles.send}
-                    />
-                </TouchableOpacity>
+
             </View>
             <View>
-            <View style={styles.card}>
-                <Image
-                    source={{uri: profilePic}}
-                    style={styles.profilePic}
-                />
-                <Text style={styles.headerText}>{profileName}</Text>
-                <Button title="Realizar doação" onPress={() => {/* handle donation */}} />
-            </View>
+                <View style={styles.card}>
+                    <Image
+                        source={{ uri: profilePic }}
+                        style={styles.profilePic}
+                    />
+                    <Text style={styles.headerText}>{profileName}</Text>
+                    <Button style={styles.colorButton}
+                        title="Realizar doação"
+                        onPress={() => {/* handle donation */ }} />
+                </View>
                 <Paragraph>
                     {profileDescription}
                 </Paragraph>
@@ -43,32 +44,32 @@ export default function OngProfile({ navigation, route }) {
 
 const styles = StyleSheet.create({
     container: {
-      flex: 1,
+        flex: 1,
     },
     header: {
-      marginTop: 30,
-      height: 55,
-      backgroundColor: '#FFF',
-      flexDirection: 'row',
-      alignItems: 'center',
-      justifyContent: 'space-between',
-      padding: 5,
-      borderBottomWidth: 0.2,
-      shadowColor: '#000',
-      elevation: 1,
-      borderTopWidth: 2,
-      borderTopColor: 'rgba(0,0,0,0.1)',
-      borderBottomWidth: 1,
-      borderBottomColor: 'rgba(0,0,0,0.1)',
-      elevation: 1,
-      // Para iOS:
-      shadowColor: "#000",
-      shadowOffset: {
-        width: 0,
-        height: -2,
-      },
-      shadowOpacity: 0.1,
-      shadowRadius: 5,
+        marginTop: 30,
+        height: 55,
+        backgroundColor: '#FFF',
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        padding: 5,
+        borderBottomWidth: 0.2,
+        shadowColor: '#000',
+        elevation: 1,
+        borderTopWidth: 2,
+        borderTopColor: 'rgba(0,0,0,0.1)',
+        borderBottomWidth: 1,
+        borderBottomColor: 'rgba(0,0,0,0.1)',
+        elevation: 1,
+        // Para iOS:
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: -2,
+        },
+        shadowOpacity: 0.1,
+        shadowRadius: 5,
     },
     card: {
         backgroundColor: 'white',
@@ -95,14 +96,17 @@ const styles = StyleSheet.create({
         marginBottom: 8, // Espaço entre o texto e o botão
     },
     send: {
-      width: 23,
-      height: 23
+        width: 23,
+        height: 23
     },
     logo: {
-      width: 23,
-      height: 23
+        width: 23,
+        height: 23
     },
-    sizeFlatList: { 
+    sizeFlatList: {
         flexDirection: 'row',
+    },
+    colorButton: {
+        backgroundColor: theme.colors.primary
     }
-  });
+});

@@ -16,30 +16,11 @@ import { theme } from '../core/theme';
 import Home from './Home';
 
 
-export default function Message({ navigation, route }) {
+export default function Donate({ navigation, route }) {
 
     const { profilePic } = route.params;
     const { description } = route.params;
     const { profileName } = route.params;
-
-    this.state = {
-        message: [
-            {
-                id: "001",
-                text: "Olá, como vai?",
-                timestamp: "2023-03-15T12:00:00Z",
-                senderId: "user123",
-                receiverId: "ong456"
-            },
-            {
-                id: "002",
-                text: "Tudo bem, e você?",
-                timestamp: "2023-03-15T12:01:00Z",
-                senderId: "ong456",
-                receiverId: "user123"
-            }
-        ]
-    };
 
     return (
 
@@ -65,44 +46,16 @@ export default function Message({ navigation, route }) {
                         </Text>
                     </View>
                 </View>
-
-
             </View>
 
             <View style={styles.content}>
 
             </View>
 
-            <KeyboardAvoidingView
-                style={styles.footer}
-                behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-                keyboardVerticalOffset={Platform.OS === 'ios' ? 20 : 0}>
-
-                <View style={styles.textInput}>
-                    <TextInput
-                        // style={{ height: inputHeight }}
-                        value={msg}
-                        multiline={true}
-                    // onContentSizeChange={(e) => setInputHeight(e.nativeEvent.content.content.height + 12)}
-                    />
-                </View>
-                <TouchableOpacity
-                    onPress={() => setMsg(msg)}
-                >
-                    <Icon name="send-sharp"
-                        size={26}
-                        color={theme.colors.primary}
-                        style={styles.fildMessage} />
-                </TouchableOpacity>
-            </KeyboardAvoidingView>
-
         </View>
     );
 }
 
-
-//const [inputHeight, setInputHeight] = useState(0);
-const [msg, setMsg] = '';
 const styles = StyleSheet.create({
     currentUserMessage: {
         alignSelf: 'flex-end',

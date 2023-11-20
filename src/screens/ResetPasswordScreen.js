@@ -8,42 +8,42 @@ import Button from '../components/Button'
 import { emailValidator } from '../helpers/emailValidator'
 
 export default function ResetPasswordScreen({ navigation }) {
-  const [email, setEmail] = useState({ value: '', error: '' })
+    const [email, setEmail] = useState({ value: '', error: '' })
 
-  const sendResetPasswordEmail = () => {
-    const emailError = emailValidator(email.value)
-    if (emailError) {
-      setEmail({ ...email, error: emailError })
-      return
+    const sendResetPasswordEmail = () => {
+        const emailError = emailValidator(email.value)
+        if (emailError) {
+            setEmail({ ...email, error: emailError })
+            return
+        }
+        navigation.navigate('LoginScreen')
     }
-    navigation.navigate('LoginScreen')
-  }
 
-  return (
-    <Background>
-      <BackButton goBack={navigation.goBack} />
-      <Logo />
-      <Header></Header>
-      <TextInput
-        label="Endereço de e-mail"
-        returnKeyType="done"
-        value={email.value}
-        onChangeText={(text) => setEmail({ value: text, error: '' })}
-        error={!!email.error}
-        errorText={email.error}
-        autoCapitalize="none"
-        autoCompleteType="email"
-        textContentType="emailAddress"
-        keyboardType="email-address"
-        description="Você receberá um e-mail com link para redefinição de senha."
-      />
-      <Button
-        mode="contained"
-        onPress={sendResetPasswordEmail}
-        style={{ marginTop: 16 }}
-      >
-        Send Instructions
-      </Button>
-    </Background>
-  )
+    return (
+        <Background>
+            <BackButton goBack={navigation.goBack} />
+            <Logo />
+            <Header></Header>
+            <TextInput
+                label="Endereço de e-mail"
+                returnKeyType="done"
+                value={email.value}
+                onChangeText={(text) => setEmail({ value: text, error: '' })}
+                error={!!email.error}
+                errorText={email.error}
+                autoCapitalize="none"
+                autoCompleteType="email"
+                textContentType="emailAddress"
+                keyboardType="email-address"
+                description="Você receberá um e-mail com link para redefinição de senha."
+            />
+            <Button
+                mode="contained"
+                onPress={sendResetPasswordEmail}
+                style={{ marginTop: 16 }}
+            >
+                Enviar instruções
+            </Button>
+        </Background>
+    )
 }
