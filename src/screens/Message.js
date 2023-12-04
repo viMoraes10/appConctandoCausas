@@ -100,8 +100,6 @@ export default function Message({ navigation, route }) {
     );
 }
 
-
-//const [inputHeight, setInputHeight] = useState(0);
 const [msg, setMsg] = '';
 const styles = StyleSheet.create({
     currentUserMessage: {

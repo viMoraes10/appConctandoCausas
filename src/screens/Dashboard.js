@@ -9,21 +9,20 @@ export default function Dashboard({ navigation }) {
     return (
         <Background>
             <Logo />
-            <Header>Let’s start</Header>
+            <Header>Cadastrado com Sucesso</Header>
             <Paragraph>
-                Your amazing app starts here. Open you favorite code editor and start
-                editing this project.
+                Transforme intenção em ação: um toque para doar, um gesto para mudar o mundo.
             </Paragraph>
             <Button
                 mode="outlined"
                 onPress={() =>
                     navigation.reset({
                         index: 0,
-                        routes: [{ name: 'StartScreen' }],
+                        routes: [{ name: 'Home' }],
                     })
                 }
             >
-                Logout
+                Entrar
             </Button>
         </Background>
     )
